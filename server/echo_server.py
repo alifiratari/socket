@@ -24,17 +24,17 @@ for res in socket.getaddrinfo(HOST, PORT, socket.AF_UNSPEC,
         continue
     break
 if s is None:
-    print 'could not open socket'
+    print("could not open socket")
     sys.exit(1)
 while 1:
  conn, addr = s.accept()
- print 'Connected by', addr
+ print("Connected by", addr)
  f = open('./file','w')
  while 1:
     data = conn.recv(1024)
     if not data: break
-    print data
-    f.write(data)
+    print(data)
+    f.write(str(data))
  f.close()
  conn.close()
 

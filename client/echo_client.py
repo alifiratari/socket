@@ -17,7 +17,7 @@ def main():
 
 def setup_network(server,port):
  s = None
- print server,port
+ print(server,port)
  for res in socket.getaddrinfo(server, port, socket.AF_UNSPEC, socket.SOCK_STREAM):
     af, socktype, proto, canonname, sa = res
     try:
@@ -33,13 +33,13 @@ def setup_network(server,port):
         continue
     break
  if s is None:
-    print 'could not open socket'
+    print('could not open socket')
     sys.exit(1)
 
  send_file(s)
 
 def send_file(s):
- f = open('./ls','r')
+ f = open('text.txt','rb')
  for line in f:
   s.sendall(line)
  f.close()
